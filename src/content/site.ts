@@ -102,49 +102,53 @@ export type ProjectItem = {
 
 export const PROJECTS: ProjectItem[] = [
   {
-    id: "wheel-picker",
-    title: "React Wheel Picker",
-    dateRange: "01.2025 — ∞",
+    id: "code-judge",
+    title: "Judge NULL (Code Judge Platform)",
+    dateRange: "Feb 2026 — Apr 2026",
     summary:
-      "iOS-style wheel picker for React with inertia scrolling and infinite loop support. Published as a tree-shakable package with docs and examples.",
+      "A scalable coding platform with a secure, container-based code execution engine.",
     bullets: [
-      "Spring-based inertia and snap-to-item behavior similar to native pickers.",
-      "Virtualized rows for long lists without jank on low-end devices.",
-      "Full keyboard and screen-reader friendly selection flow.",
+      "Developed a Docker-based sandbox system to safely execute user code in isolated environments",
+      "Implemented custom authentication (JWT + OAuth) with Google & GitHub, along with role-ready backend structure",
+      "Designed a high-performance system using Redis caching, rate limiting, and BullMQ queues for handling concurrent executions",
     ],
-    skills: ["React", "TypeScript", "Vite", "GitHub Actions"],
-    githubUrl: "https://github.com",
+    skills: [
+      "React",
+      "React Router",
+      "Bun (Monorepo)",
+      "Express",
+      "Docker",
+      "Redis",
+      "Tailwind CSS",
+      "Shadcn",
+      "BullMQ",
+    ],
+    githubUrl: "https://github.com/dhanushtheijas08/code-judge",
     liveUrl: "https://example.com",
   },
   {
-    id: "portfolio",
-    title: "Personal Portfolio",
-    dateRange: "03.2024 — 12.2024",
+    id: "resume-builder",
+    title: "Resume Builder",
+    dateRange: "Nov 2025 — Feb 2026",
     summary:
-      "Minimal portfolio site with dark mode, MDX-ready structure, and a focus on typography. Built to load fast and stay easy to extend.",
+      "A modern resume builder focused on real-time customization and high-quality PDF generation.",
     bullets: [
-      "Responsive layout with accessible navigation and focus states.",
-      "Content sections driven by typed data for easy updates.",
-      "Deployed on the edge with automatic previews on every push.",
+      "Real-time resume preview with dynamic editing and template filtering based on company, role, and experience",
+      "Reused frontend UI components for server-side PDF generation using Puppeteer, ensuring design consistency",
+      "Built a custom page-break engine for accurate multi-page PDF rendering — a key improvement over typical resume tools",
     ],
-    skills: ["React", "Tailwind CSS", "Vite", "Bun"],
-    githubUrl: "https://github.com",
-    liveUrl: "https://example.com",
-  },
-  {
-    id: "api-kit",
-    title: "Typed API Client",
-    dateRange: "06.2023 — 02.2024",
-    summary:
-      "Small toolkit for calling REST APIs with Zod-validated responses and typed errors. Designed for use in server and client components.",
-    bullets: [
-      "Runtime validation of JSON with clear error paths for debugging.",
-      "Automatic retry with backoff for transient failures.",
-      "Composable middleware for auth headers and logging.",
+    skills: [
+      "Next.js",
+      "React",
+      "Typescript",
+      "Tailwind CSS",
+      "Shadcn",
+      "Prisma ORM",
+      "MongoDB",
+      "Puppeteer",
     ],
-    skills: ["TypeScript", "Zod", "Node.js"],
-    githubUrl: "https://github.com",
-    liveUrl: "https://example.com",
+    githubUrl: "https://github.com/dhanushtheijas08/resume-builder",
+    liveUrl: "https://coder-cv.vercel.app/",
   },
 ]
 
@@ -152,9 +156,7 @@ export type ExperienceItem = {
   id: string
   company: string
   role: string
-  /** ISO date yyyy-mm-dd */
   start: string
-  /** ISO date yyyy-mm-dd, or null if still in this role */
   end: string | null
   skills: string[]
   bullets: string[]

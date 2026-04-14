@@ -3,6 +3,7 @@ import { Nav } from "@/components/Nav"
 import { ProfileSection } from "@/components/ProfileSection"
 import { ThemeProvider } from "@/components/theme-provider"
 import { TooltipProvider } from "@/components/ui/tooltip"
+import { ProjectsSection } from "./components/ProjectsSection"
 
 export function App() {
   return (
@@ -17,6 +18,7 @@ export function App() {
             <ProfileSection />
             <div className="flex flex-col gap-14">
               <ContactAndSocialGrid />
+              <ProjectsSection />
             </div>
           </div>
         </main>
