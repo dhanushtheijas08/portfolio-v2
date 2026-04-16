@@ -109,7 +109,7 @@ export function ProjectsSection() {
                           className="flex gap-3 text-sm leading-relaxed text-muted-foreground"
                         >
                           <span
-                            className="mt-2 size-1.5 shrink-0 bg-sky-500"
+                            className="mt-2 size-1.5 shrink-0 bg-primary corner-squircle supports-corner-shape:rounded-[50%]"
                             aria-hidden
                           />
                           <span>{line}</span>

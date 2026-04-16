@@ -4,22 +4,16 @@ export const RESUME_URL =
   "https://drive.google.com/file/d/1usCDz2c4wtNKrkPV-akuh2Tm6wjDAZ-2/view?usp=sharing"
 
 export const SOCIAL_HREF = {
-  github: "https://github.com/dhanush",
+  github: "https://github.com/dhanushtheijas08",
   x: "https://x.com/dhanush_theijas",
-  linkedin: "https://linkedin.com/in/dhanush",
+  linkedin: "https://www.linkedin.com/in/dhanush-theijas-tp/",
 } as const
 
-export const FOOTER_VISITOR_COUNT = "3,153"
 export const BLOG_ARCHIVE_HREF = "https://medium.com"
 
 export type SkillItem = {
   label: string
-  /** Simple Icons slug for https://cdn.simpleicons.org/{slug} or /{slug}/{hex} */
   iconSlug: string
-  /**
-   * Optional 6-char hex (no #). Some defaults are near-black and vanish on dark UI;
-   * set a light hex so the SVG reads on `dark` backgrounds.
-   */
   iconColor?: string
 }
 
@@ -54,37 +48,35 @@ export type BlogPost = {
 export const BLOG_POSTS: BlogPost[] = [
   {
     id: "1",
-    title: "Theme Toggle Effect",
-    date: "2025-07-24",
+    title: "Streaming SSR Without the Footguns",
+    date: "2026-02-11",
     href: "#",
     image:
       "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80",
-    featured: true,
   },
   {
     id: "2",
-    title: "Building with Radix Primitives",
-    date: "2025-06-12",
+    title: "Why Your Cache Headers Lie",
+    date: "2025-11-03",
     href: "#",
     image:
       "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&q=80",
   },
   {
     id: "3",
-    title: "Dropdown Patterns in React",
-    date: "2025-05-03",
+    title: "SQLite in Production: Notes from the Trenches",
+    date: "2025-08-29",
     href: "#",
     image:
       "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&q=80",
   },
   {
     id: "4",
-    title: "Twemoji and Accessible Icons",
-    date: "2025-04-18",
+    title: "Design Tokens That Survive a Rebrand",
+    date: "2025-04-07",
     href: "#",
     image:
       "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&q=80",
-    featured: true,
   },
 ]
 
@@ -165,32 +157,39 @@ export type ExperienceItem = {
 
 export const EXPERIENCES: ExperienceItem[] = [
   {
-    id: "turbo-ml",
-    company: "Turbo ML",
-    role: "Software Engineering Intern (AI)",
-    start: "2025-04-01",
+    id: "velam-ai",
+    company: "Velam AI",
+    role: "Software Engineering",
+    start: "2024-09-03",
     end: null,
-    skills: ["Redis", "Python", "TypeScript", "FastAPI", "REST APIs", "Docker"],
+    skills: [
+      "Next.js",
+      "React",
+      "Node.js",
+      "Express.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Shadcn",
+      "Prisma ORM",
+      "Supabase",
+      "Firebase",
+      "PostgreSQL",
+      "Docker",
+      "Google Cloud Storage",
+      "Google Cloud Build",
+      "Google Cloud Run",
+      "Stripe",
+      "Razorpay",
+      "REST APIs",
+      "CI/CD",
+    ],
     logo: "turbo",
     bullets: [
-      "Implemented a reminder system using Redis Sorted Sets and scheduled workers to deliver timely notifications at scale.",
-      "Integrated multiple external APIs including Swiggy and payment providers with resilient error handling and retries.",
-      "Built internal dashboards and monitoring hooks to surface usage metrics for ML pipelines.",
-      "Collaborated with the research team to productionize experiment code and reduce inference latency.",
-      "Documented deployment runbooks and contributed to onboarding materials for new engineers.",
-    ],
-  },
-  {
-    id: "sample",
-    company: "Acme Labs",
-    role: "Junior Developer",
-    start: "2024-01-01",
-    end: "2025-03-31",
-    skills: ["React", "TypeScript", "Tailwind CSS", "Node.js", "Vitest"],
-    logo: "generic",
-    bullets: [
-      "Shipped features across the web stack with a focus on performance and accessibility.",
-      "Partnered with design on component libraries and consistent UX patterns.",
+      "Developed an AI-powered video analysis platform focused on posture, eye contact, and speech patterns, building core features using Next.js, Node.js, Express, Prisma ORM, and Docker",
+      "Architected a dual-sided, multi-role system supporting individual users (with Stripe-based subscriptions) and an academy platform with teacher–student workflows similar to Google Classroom",
+      "Designed and deployed scalable infrastructure for handling video uploads via Google Cloud Storage and implemented CI/CD pipelines using Google Cloud Build and Google Cloud Run",
+      "Built a real-time 1:1 meeting booking system with a custom scheduling queue to prevent double bookings, ensuring high reliability under concurrent usage",
+      "Integrated end-to-end payments using Stripe and Razorpay, along with automated Zoom session workflows, dynamic admin controls, and email-based engagement systems",
     ],
   },
 ]

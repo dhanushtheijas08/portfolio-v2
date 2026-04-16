@@ -4,6 +4,10 @@ import { ProfileSection } from "@/components/ProfileSection"
 import { ThemeProvider } from "@/components/theme-provider"
 import { TooltipProvider } from "@/components/ui/tooltip"
 import { ProjectsSection } from "./components/ProjectsSection"
+import { BlogSection } from "./components/BlogSection"
+import { ProfessionalExperience } from "./components/ProfessionalExperience"
+import { SkillsSection } from "./components/SkillsSection"
+import { SiteFooter } from "./components/SiteFooter"
 
 export function App() {
   return (
@@ -18,7 +22,11 @@ export function App() {
             <ProfileSection />
             <div className="flex flex-col gap-14">
               <ContactAndSocialGrid />
+              <ProfessionalExperience />
+              <SkillsSection />
               <ProjectsSection />
+              <BlogSection />
+              <SiteFooter />
             </div>
           </div>
         </main>
