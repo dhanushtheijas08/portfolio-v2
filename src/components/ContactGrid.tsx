@@ -1,3 +1,4 @@
+import resumeBlackPng from "@/assets/resume-black.png"
 import resumePng from "@/assets/resume.png"
 import { EMAIL, PHONE, RESUME_URL, SOCIAL_HREF } from "@/content/site"
 import { cn } from "@/lib/utils"
@@ -9,6 +10,7 @@ type BaseContactItem = {
   label: string
   icon: ReactNode
   iconBgClass?: string
+  iconClassName?: string
 }
 
 type CopyableContactItem = BaseContactItem & {
@@ -164,6 +166,8 @@ const DEFAULT_CONTACT_ITEMS: ContactItem[] = [
     href: SOCIAL_HREF.x,
     label: "X",
     icon: <XIcon />,
+    iconBgClass: "bg-black",
+    iconClassName: "text-white",
   },
   {
     id: "resume",
@@ -171,16 +175,27 @@ const DEFAULT_CONTACT_ITEMS: ContactItem[] = [
     href: RESUME_URL,
     label: "Resume",
     icon: (
-      <img
-        src={resumePng}
-        alt=""
-        width={44}
-        height={44}
-        className="size-11 object-contain"
-        aria-hidden
-      />
+      <>
+        <img
+          src={resumeBlackPng}
+          alt=""
+          width={44}
+          height={44}
+          className="size-11 object-contain dark:hidden"
+          aria-hidden
+        />
+        <img
+          src={resumePng}
+          alt=""
+          width={44}
+          height={44}
+          className="hidden size-11 object-contain dark:block"
+          aria-hidden
+        />
+      </>
     ),
-    iconBgClass: "bg-black",
+    /** Light: default `bg-background` tile; dark: black chip + white resume art */
+    iconBgClass: "dark:bg-black",
   },
   {
     id: "email",
@@ -211,7 +226,9 @@ function ContactGridItemContent({
   return (
     <>
       <div className={cn(iconWrapClass, item.iconBgClass)}>
-        <div className="text-foreground">{item.icon}</div>
+        <div className={cn("text-foreground", item.iconClassName)}>
+          {item.icon}
+        </div>
         <div className={iconRingClass} />
       </div>
       <span className="min-w-0 flex-1 truncate text-sm text-foreground">

@@ -19,13 +19,23 @@ export function App() {
             <div className="strip-pattern strip-border pointer-events-none absolute top-0 right-full bottom-0 hidden w-20 border-r border-l lg:block xl:w-20" />
             <div className="strip-pattern strip-border pointer-events-none absolute top-0 bottom-0 left-full hidden w-20 border-r border-l lg:block xl:w-20" />
 
-            <ProfileSection />
+            <section id="home" className="scroll-mt-24">
+              <ProfileSection />
+            </section>
             <div className="flex flex-col gap-14">
               <ContactAndSocialGrid />
-              <ProfessionalExperience />
-              <SkillsSection />
-              <ProjectsSection />
-              <BlogSection />
+              <section id="experience" className="scroll-mt-24">
+                <ProfessionalExperience />
+              </section>
+              <section id="skills" className="scroll-mt-24">
+                <SkillsSection />
+              </section>
+              <section id="projects" className="scroll-mt-24">
+                <ProjectsSection />
+              </section>
+              <section id="blog" className="scroll-mt-24">
+                <BlogSection />
+              </section>
               <SiteFooter />
             </div>
           </div>

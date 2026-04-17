@@ -9,20 +9,28 @@ export const SOCIAL_HREF = {
   linkedin: "https://www.linkedin.com/in/dhanush-theijas-tp/",
 } as const
 
-export const BLOG_ARCHIVE_HREF = "https://medium.com"
+export const BLOG_ARCHIVE_HREF = "https://dhanushtheijas.hashnode.dev"
 
 export type SkillItem = {
   label: string
   iconSlug: string
   iconColor?: string
+  /** Light vs dark UI (e.g. black on light theme, white on dark). */
+  iconColorLight?: string
+  iconColorDark?: string
 }
 
 export const SKILLS: SkillItem[] = [
   { label: "TypeScript", iconSlug: "typescript" },
   { label: "JavaScript", iconSlug: "javascript" },
   { label: "Node.js", iconSlug: "nodedotjs" },
-  { label: "Bun", iconSlug: "bun", iconColor: "ffffff" },
-  { label: "Next.js", iconSlug: "nextdotjs", iconColor: "ffffff" },
+  { label: "Bun", iconSlug: "bun" },
+  {
+    label: "Next.js",
+    iconSlug: "nextdotjs",
+    iconColorLight: "000000",
+    iconColorDark: "ffffff",
+  },
   { label: "Tailwind CSS", iconSlug: "tailwindcss" },
   { label: "Git", iconSlug: "git" },
   { label: "Docker", iconSlug: "docker" },
@@ -33,7 +41,12 @@ export const SKILLS: SkillItem[] = [
   { label: "React", iconSlug: "react" },
   { label: "React Router", iconSlug: "reactrouter" },
   { label: "Redis", iconSlug: "redis" },
-  { label: "Express", iconSlug: "express", iconColor: "ffffff" },
+  {
+    label: "Express",
+    iconSlug: "express",
+    iconColorLight: "000000",
+    iconColorDark: "ffffff",
+  },
 ]
 
 export type BlogPost = {
@@ -47,43 +60,43 @@ export type BlogPost = {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
-    id: "1",
-    title: "Streaming SSR Without the Footguns",
-    date: "2026-02-11",
-    href: "#",
+    id: "scoping-hoisting-js",
+    title: "Scoping and Hoisting in JavaScript: Understanding the Basics",
+    date: "2024-06-16",
+    href: "https://dhanushtheijas.hashnode.dev/scoping-and-hoisting-in-javascript-understanding-the-basics",
+    image:
+      "https://images.unsplash.com/photo-1579468118864-1b9ea3c0db4a?w=800&q=80",
+  },
+  {
+    id: "css-selectors-guide",
+    title: "CSS Selectors: A Comprehensive Guide",
+    date: "2024-08-22",
+    href: "https://dhanushtheijas.hashnode.dev/css-selectors-a-comprehensive-guide",
+    image:
+      "https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=800&q=80",
+  },
+  {
+    id: "js-function-types",
+    title:
+      "Understanding the Different Types of Functions in JavaScript: A Comprehensive Guide",
+    date: "2024-10-08",
+    href: "https://dhanushtheijas.hashnode.dev/understanding-the-different-types-of-functions-in-javascriptcomprehensive-guide",
     image:
       "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80",
   },
   {
-    id: "2",
-    title: "Why Your Cache Headers Lie",
-    date: "2025-11-03",
-    href: "#",
+    id: "let-const-var-js",
+    title: "Let, Const, and Var in JavaScript",
+    date: "2025-01-12",
+    href: "https://dhanushtheijas.hashnode.dev/let-const-and-var-in-javascript",
     image:
-      "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&q=80",
-  },
-  {
-    id: "3",
-    title: "SQLite in Production: Notes from the Trenches",
-    date: "2025-08-29",
-    href: "#",
-    image:
-      "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&q=80",
-  },
-  {
-    id: "4",
-    title: "Design Tokens That Survive a Rebrand",
-    date: "2025-04-07",
-    href: "#",
-    image:
-      "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&q=80",
+      "https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=800&q=80",
   },
 ]
 
 export type ProjectItem = {
   id: string
   title: string
-  /** Shown in the row, e.g. "01.2025 — ∞" */
   dateRange: string
   summary: string
   bullets: readonly [string, string, string]
@@ -152,7 +165,7 @@ export type ExperienceItem = {
   end: string | null
   skills: string[]
   bullets: string[]
-  logo: "turbo" | "generic"
+  logo: "velam-ai" | "generic"
 }
 
 export const EXPERIENCES: ExperienceItem[] = [
@@ -183,13 +196,13 @@ export const EXPERIENCES: ExperienceItem[] = [
       "REST APIs",
       "CI/CD",
     ],
-    logo: "turbo",
+    logo: "velam-ai",
     bullets: [
-      "Developed an AI-powered video analysis platform focused on posture, eye contact, and speech patterns, building core features using Next.js, Node.js, Express, Prisma ORM, and Docker",
-      "Architected a dual-sided, multi-role system supporting individual users (with Stripe-based subscriptions) and an academy platform with teacher–student workflows similar to Google Classroom",
-      "Designed and deployed scalable infrastructure for handling video uploads via Google Cloud Storage and implemented CI/CD pipelines using Google Cloud Build and Google Cloud Run",
-      "Built a real-time 1:1 meeting booking system with a custom scheduling queue to prevent double bookings, ensuring high reliability under concurrent usage",
-      "Integrated end-to-end payments using Stripe and Razorpay, along with automated Zoom session workflows, dynamic admin controls, and email-based engagement systems",
+      "Developed an **AI-powered video analysis** platform focused on posture, eye contact, and speech patterns, building core features with **Next.js**, **Node.js**, **Express**, **Prisma ORM**, and **Docker**",
+      "Architected a **dual-sided, multi-role** system for individual users (**Stripe** subscriptions) and an academy with teacher–student workflows modeled on **Google Classroom**",
+      "Designed and deployed scalable infrastructure for **video uploads** via **Google Cloud Storage** and **CI/CD** with **Google Cloud Build** and **Google Cloud Run**",
+      "Built a **real-time** **1:1** meeting booking system with a **custom scheduling queue** to prevent double bookings under concurrent load",
+      "Integrated **Stripe** and **Razorpay** payments, **Zoom** session automation, dynamic admin controls, and email engagement flows",
     ],
   },
 ]

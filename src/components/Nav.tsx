@@ -23,7 +23,7 @@ export function Nav() {
     <nav className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/70 backdrop-blur-md backdrop-saturate-150">
       <div className="relative mx-auto flex max-w-3xl items-center justify-between px-12 py-5">
         <div className="flex gap-8 text-sm text-muted-foreground">
-          <a href="#" className="transition-colors hover:text-foreground">
+          <a href="#home" className="transition-colors hover:text-foreground">
             Home
           </a>
           <a
