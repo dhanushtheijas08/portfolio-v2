@@ -108,14 +108,14 @@ export type ProjectItem = {
 export const PROJECTS: ProjectItem[] = [
   {
     id: "code-judge",
-    title: "Judge NULL (Code Judge Platform)",
+    title: "Judge NULL (Leetcode Clone)",
     dateRange: "Feb 2026 — Apr 2026",
     summary:
       "A scalable coding platform with a secure, container-based code execution engine.",
     bullets: [
-      "Developed a Docker-based sandbox system to safely execute user code in isolated environments",
-      "Implemented custom authentication (JWT + OAuth) with Google & GitHub, along with role-ready backend structure",
-      "Designed a high-performance system using Redis caching, rate limiting, and BullMQ queues for handling concurrent executions",
+      "Developed a **Docker-based sandbox** system to safely execute user code in **isolated environments**",
+      "Implemented custom authentication (**JWT** + **OAuth**) with **Google** & **GitHub**, along with a **role-ready** backend structure",
+      "Designed a high-performance system using **Redis** caching, **rate limiting**, and **BullMQ** queues for handling **concurrent executions**",
     ],
     skills: [
       "React",
@@ -138,9 +138,9 @@ export const PROJECTS: ProjectItem[] = [
     summary:
       "A modern resume builder focused on real-time customization and high-quality PDF generation.",
     bullets: [
-      "Real-time resume preview with dynamic editing and template filtering based on company, role, and experience",
-      "Reused frontend UI components for server-side PDF generation using Puppeteer, ensuring design consistency",
-      "Built a custom page-break engine for accurate multi-page PDF rendering — a key improvement over typical resume tools",
+      "**Real-time** resume preview with dynamic editing and **template filtering** based on company, role, and experience",
+      "Reused frontend UI components for **server-side PDF generation** using **Puppeteer**, ensuring **design consistency**",
+      "Built a custom **page-break engine** for accurate **multi-page PDF** rendering — a key improvement over typical resume tools",
     ],
     skills: [
       "Next.js",

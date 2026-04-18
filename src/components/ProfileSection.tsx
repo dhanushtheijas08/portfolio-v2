@@ -1,5 +1,5 @@
 import blueTick from "@/assets/blue-tick.svg"
-import profileImage from "@/assets/profile.png"
+// import profileImage from "@/assets/profile.png"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { SOCIAL_HREF } from "@/content/site"
 export function ProfileSection() {
@@ -9,7 +9,7 @@ export function ProfileSection() {
         <Avatar className="h-26 w-24 rounded-2xl object-cover ring-1 ring-border">
           <AvatarImage
             alt="Dhanush"
-            src={profileImage}
+            // src={profileImage}
             className="object-cover object-center"
           />
           <AvatarFallback className="rounded-md font-serif text-3xl">

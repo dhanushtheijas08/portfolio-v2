@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/tooltip"
 import { GithubIcon } from "@/components/icons/social"
 import { PROJECTS } from "@/content/site"
+import { richBulletText } from "@/lib/rich-bullet-text"
 import { Link } from "lucide-react"
 
 function ProjectLogo({ title }: { title: string }) {
@@ -128,7 +129,7 @@ export function ProjectsSection() {
                       className="mt-2 size-1.5 shrink-0 bg-primary corner-squircle supports-corner-shape:rounded-[50%]"
                       aria-hidden
                     />
-                    <span>{line}</span>
+                    <span>{richBulletText(line)}</span>
                   </li>
                 ))}
               </ul>

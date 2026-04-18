@@ -8,23 +8,9 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Badge } from "@/components/ui/badge"
 import { EXPERIENCES, type ExperienceItem } from "@/content/site"
 import { formatDurationYears, formatExperiencePeriod } from "@/lib/format-dates"
+import { richBulletText } from "@/lib/rich-bullet-text"
 import { Building2 } from "lucide-react"
 import VelamLogo from "@/assets/velam-logo.png"
-
-function experienceBulletRich(text: string) {
-  const parts = text.split(/(\*\*[^*]+\*\*)/g)
-  return parts.map((part, i) => {
-    const m = part.match(/^\*\*(.+)\*\*$/)
-    if (m) {
-      return (
-        <strong key={i} className="font-medium text-foreground">
-          {m[1]}
-        </strong>
-      )
-    }
-    return <span key={i}>{part}</span>
-  })
-}
 
 function ExperienceLogo({ variant }: { variant: ExperienceItem["logo"] }) {
   if (variant === "velam-ai") {
@@ -110,7 +96,7 @@ export function ProfessionalExperience() {
                       className="mt-2 size-1.5 shrink-0 bg-primary corner-squircle supports-corner-shape:rounded-[50%]"
                       aria-hidden
                     />
-                    <span>{experienceBulletRich(line)}</span>
+                    <span>{richBulletText(line)}</span>
                   </li>
                 ))}
               </ul>
