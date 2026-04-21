@@ -65,6 +65,19 @@ export function Nav() {
           ))}
         </div>
 
+        <div className="flex items-center lg:hidden">
+          <img
+            src="/black-favicon.svg"
+            alt="Logo"
+            className="size-6.5 dark:hidden"
+          />
+          <img
+            src="/white-favicon.svg"
+            alt="Logo"
+            className="hidden size-6.5 dark:block"
+          />
+        </div>
+
         <div className="flex w-full items-center justify-end gap-2 sm:gap-3 lg:w-auto lg:justify-end">
           <Button
             type="button"
@@ -91,7 +104,7 @@ export function Nav() {
       <div
         id={panelId}
         className={cn(
-          "border-t border-border/40 bg-background/95 backdrop-blur-md lg:hidden",
+          "absolute w-full border-t border-border/40 bg-background/95 backdrop-blur-md lg:hidden",
           mobileOpen ? "block" : "hidden"
         )}
       >
