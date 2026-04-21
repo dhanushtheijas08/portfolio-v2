@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils"
 import { Menu, Moon, Sun, X } from "lucide-react"
 import { useEffect, useId, useState } from "react"
-import { useTheme } from "./theme-provider"
+import { useTheme, type Theme } from "./theme-provider"
 import { Button } from "./ui/button"
 
 const NAV_LINKS = [
@@ -15,12 +15,21 @@ const NAV_LINKS = [
 function ThemeToggle() {
   const { setTheme, theme } = useTheme()
 
+  const toggleTheme = (theme: Theme) => {
+    if (!document.startViewTransition) {
+      setTheme(theme)
+      return
+    }
+    document.startViewTransition(() => setTheme(theme))
+  }
+
   return (
     <Button
       variant="outline"
       size="icon-sm"
       className="relative shrink-0"
-      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+      // onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+      onClick={() => toggleTheme(theme === "dark" ? "light" : "dark")}
     >
       <Sun className="h-[1.2rem] w-[1.2rem] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" />
       <Moon className="absolute h-[1.2rem] w-[1.2rem] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />

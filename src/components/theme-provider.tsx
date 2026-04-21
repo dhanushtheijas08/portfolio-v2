@@ -1,7 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react"
-import { flushSync } from "react-dom"
 
-type Theme = "dark" | "light" | "system"
+export type Theme = "dark" | "light" | "system"
 
 type ThemeProviderProps = {
   children: React.ReactNode
@@ -27,7 +26,7 @@ export function ThemeProvider({
   storageKey = "vite-ui-theme",
   ...props
 }: ThemeProviderProps) {
-  const [theme, setThemeState] = useState<Theme>(
+  const [theme, setTheme] = useState<Theme>(
     () => (localStorage.getItem(storageKey) as Theme) || defaultTheme
   )
 
@@ -51,18 +50,9 @@ export function ThemeProvider({
 
   const value = {
     theme,
-    setTheme: (next: Theme) => {
-      const update = () => {
-        flushSync(() => {
-          setThemeState(next)
-        })
-      }
-      if (typeof document.startViewTransition === "function") {
-        document.startViewTransition(update)
-      } else {
-        update()
-      }
-      localStorage.setItem(storageKey, next)
+    setTheme: (theme: Theme) => {
+      localStorage.setItem(storageKey, theme)
+      setTheme(theme)
     },
   }
 
