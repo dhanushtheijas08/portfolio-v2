@@ -13,29 +13,19 @@ export function App() {
   return (
     <ThemeProvider>
       <TooltipProvider>
-        <main className="min-h-screen">
-          <div className="relative mx-auto max-w-3xl pb-12">
+        <main className="min-h-screen overflow-x-hidden px-4 sm:px-8 md:px-10 lg:px-12">
+          <div className="relative mx-auto max-w-3xl pb-10 sm:pb-12 md:pb-14">
             <Nav />
-            <div className="strip-pattern strip-border pointer-events-none absolute top-0 right-full bottom-0 hidden w-20 border-r border-l lg:block xl:w-20" />
-            <div className="strip-pattern strip-border pointer-events-none absolute top-0 bottom-0 left-full hidden w-20 border-r border-l lg:block xl:w-20" />
+            <div className="strip-pattern strip-border pointer-events-none absolute top-0 right-full bottom-0 w-6 border-r border-l sm:w-10 lg:w-16 xl:w-20" />
+            <div className="strip-pattern strip-border pointer-events-none absolute top-0 bottom-0 left-full w-6 border-r border-l sm:w-10 lg:w-16 xl:w-20" />
 
-            <section id="home" className="scroll-mt-24">
-              <ProfileSection />
-            </section>
-            <div className="flex flex-col gap-14">
+            <ProfileSection />
+            <div className="flex flex-col gap-10 sm:gap-12 md:gap-14">
               <ContactAndSocialGrid />
-              <section id="experience" className="scroll-mt-24">
-                <ProfessionalExperience />
-              </section>
-              <section id="skills" className="scroll-mt-24">
-                <SkillsSection />
-              </section>
-              <section id="projects" className="scroll-mt-24">
-                <ProjectsSection />
-              </section>
-              <section id="blog" className="scroll-mt-24">
-                <BlogSection />
-              </section>
+              <ProfessionalExperience />
+              <SkillsSection />
+              <ProjectsSection />
+              <BlogSection />
               <SiteFooter />
             </div>
           </div>

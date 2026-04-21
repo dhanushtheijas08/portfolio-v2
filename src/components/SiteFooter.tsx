@@ -13,7 +13,7 @@ import { useEffect, useState } from "react"
 import { createPortal } from "react-dom"
 
 const footerPillClass =
-  "inline-flex min-h-9 min-w-0 shrink-0 items-center gap-2 rounded-full border border-border bg-muted/50 px-4 py-2 text-sm text-foreground shadow-sm transition-colors hover:bg-muted"
+  "inline-flex min-h-8 min-w-0 shrink-0 items-center gap-1.5 rounded-full border border-border bg-muted/50 px-3 py-1.5 text-xs text-foreground shadow-sm transition-colors hover:bg-muted sm:min-h-9 sm:gap-2 sm:px-4 sm:py-2 sm:text-sm"
 
 const CURSOR_PREVIEW_OFFSET = 10
 const PREVIEW_MAX_W = 352
@@ -157,7 +157,7 @@ function FooterLinkWithCursorPreview({
                     draggable={false}
                   />
                 ) : (
-                  <p className="px-4 py-3 font-mono text-sm leading-snug break-all text-foreground">
+                  <p className="px-3 py-2 font-mono text-xs leading-snug break-all text-foreground sm:px-4 sm:py-3 sm:text-sm">
                     {textPreview}
                   </p>
                 )}
@@ -195,17 +195,17 @@ export function SiteFooter() {
 
   return (
     <footer className="border-border">
-      <div className="flex flex-col gap-5">
-        <div>
-          <h2 className="px-8 font-serif text-3xl font-normal tracking-tight text-foreground">
+      <div className="flex flex-col gap-5 sm:gap-6 md:gap-7">
+        <div className="px-4 text-center sm:px-6 sm:text-left md:px-8">
+          <h2 className="font-serif text-2xl font-normal tracking-tight text-foreground sm:text-3xl md:text-[2.125rem] md:leading-tight">
             Let&apos;s connect
-            <p className="font-sans text-sm text-muted-foreground">
+            <p className="mx-auto mt-1.5 max-w-sm font-sans text-xs leading-snug text-muted-foreground sm:mx-0 sm:mt-2 sm:max-w-none sm:text-sm md:text-[0.9375rem]">
               Get in touch with me on these platforms
             </p>
           </h2>
         </div>
 
-        <div className="flex flex-wrap items-center gap-2 px-8">
+        <div className="flex flex-wrap items-center justify-center gap-2 px-4 sm:justify-start sm:gap-2 sm:px-6 md:px-8">
           {SOCIAL_PREVIEW_LINKS.map(({ id, href, previewSrc, label, Icon }) => (
             <FooterLinkWithCursorPreview
               key={id}
@@ -214,7 +214,7 @@ export function SiteFooter() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Icon className="size-4 shrink-0" />
+              <Icon className="size-3.5 shrink-0 sm:size-4" />
               {label}
             </FooterLinkWithCursorPreview>
           ))}
@@ -222,7 +222,7 @@ export function SiteFooter() {
             href={`mailto:${EMAIL}`}
             textPreview={EMAIL}
           >
-            <Mail className="size-4 shrink-0" />
+            <Mail className="size-3.5 shrink-0 sm:size-4" />
             Mail
           </FooterLinkWithCursorPreview>
           <FooterLinkWithCursorPreview
@@ -231,15 +231,15 @@ export function SiteFooter() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <FileText className="size-4 shrink-0" />
+            <FileText className="size-3.5 shrink-0 sm:size-4" />
             Resume
           </FooterLinkWithCursorPreview>
         </div>
 
-        <div className="border-t border-border px-8 pt-8">
-          <div className="flex flex-col gap-6 font-mono text-xs leading-relaxed sm:flex-row sm:items-end sm:justify-between">
-            <div className="space-y-2 text-muted-foreground">
-              <p>
+        <div className="border-t border-border px-4 pt-5 sm:px-6 sm:pt-8 md:px-8">
+          <div className="mx-auto flex max-w-sm flex-col items-center gap-4 font-mono text-xs leading-relaxed sm:mx-0 sm:max-w-none sm:flex-row sm:items-end sm:justify-between sm:gap-6 md:leading-relaxed">
+            <div className="space-y-1.5 text-center text-muted-foreground sm:space-y-2 sm:text-left">
+              <p className="text-pretty">
                 Designed &amp; Developed by{" "}
                 <span className="font-medium text-foreground">
                   Dhanush Theijas
@@ -247,7 +247,7 @@ export function SiteFooter() {
               </p>
               <p>© {year} All rights reserved.</p>
             </div>
-            <div className="space-y-2 text-right sm:max-w-[min(100%,20rem)]">
+            <div className="hidden space-y-1.5 text-right sm:block sm:max-w-[min(100%,20rem)] sm:space-y-2">
               {/* <p className="text-muted-foreground">
                 Visitors{" "}
                 <span className="font-medium text-foreground">

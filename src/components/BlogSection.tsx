@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils"
 import { ArrowRight } from "lucide-react"
 
 const overlayGridClass =
-  "pointer-events-none absolute inset-0 z-10 hidden grid gap-2.5 sm:grid"
+  "pointer-events-none absolute inset-0 z-10 hidden grid gap-2 sm:grid sm:gap-2.5 md:gap-3"
 
 function BlogColumnLines() {
   const columns = 2
@@ -59,28 +59,28 @@ export function BlogSection() {
   const count = BLOG_POSTS.length
 
   return (
-    <section id="blog" className="scroll-mt-8">
-      <h2 className="px-8 font-serif text-3xl font-normal tracking-tight text-foreground">
+    <section id="blog" className="scroll-mt-24">
+      <h2 className="px-4 font-serif text-2xl font-normal tracking-tight text-foreground sm:px-6 sm:text-3xl md:px-8 md:text-[2.125rem] md:leading-tight">
         Blog
-        <span className="ml-1 align-super text-base text-muted-foreground">
+        <span className="ml-0.5 align-super text-xs text-muted-foreground sm:ml-1 sm:text-sm md:text-base">
           ({count})
         </span>
       </h2>
 
-      <div className="mt-4 border border-x-0 border-border/90">
+      <div className="mt-3 border border-x-0 border-border/90 sm:mt-4 md:mt-5">
         <div className="relative">
           <BlogColumnLines />
           <BlogRowLines />
           <ExtraBorder />
 
-          <div className="-z-10 grid grid-cols-1 gap-5 py-3 sm:grid-cols-2">
+          <div className="-z-10 grid grid-cols-1 gap-4 px-1 py-2 sm:grid-cols-2 sm:gap-5 sm:px-2 sm:py-3 md:gap-6 md:px-3">
             {BLOG_POSTS.map((post) => (
               <a
                 key={post.id}
                 href={post.href}
-                className="group flex flex-col bg-background transition-colors hover:bg-muted/30 sm:p-2"
+                className="group flex flex-col bg-background transition-colors hover:bg-muted/30 sm:p-2 md:p-2.5"
               >
-                <div className="relative aspect-16/10 overflow-hidden rounded-3xl bg-muted ring-1 ring-border">
+                <div className="relative aspect-16/10 overflow-hidden rounded-2xl bg-muted ring-1 ring-border sm:rounded-3xl">
                   <img
                     src={post.image}
                     alt=""
@@ -88,20 +88,20 @@ export function BlogSection() {
                     loading="lazy"
                   />
                 </div>
-                <div className="mt-4 flex min-w-0 items-start gap-2">
-                  <h3 className="min-w-0 flex-1 leading-snug font-semibold text-foreground">
+                <div className="mt-3 flex min-w-0 items-start gap-1.5 sm:mt-4 sm:gap-2">
+                  <h3 className="min-w-0 flex-1 text-sm font-semibold leading-snug text-foreground sm:text-base md:text-[1.0625rem]">
                     {post.title}
                   </h3>
                   {post.featured ? (
                     <span
-                      className="mt-1.5 size-2 shrink-0 rounded-full bg-sky-500"
+                      className="mt-1 size-1.5 shrink-0 rounded-full bg-sky-500 sm:mt-1.5 sm:size-2"
                       aria-hidden
                     />
                   ) : null}
                 </div>
                 <time
                   dateTime={post.date}
-                  className="mt-2 text-sm text-muted-foreground"
+                  className="mt-1.5 text-xs text-muted-foreground sm:mt-2 sm:text-sm md:text-[0.9375rem]"
                 >
                   {formatBlogDate(post.date)}
                 </time>
@@ -110,15 +110,15 @@ export function BlogSection() {
           </div>
         </div>
 
-        <div className="flex justify-center border-t border-border/90 bg-background px-4 py-4">
+        <div className="flex justify-center border-t border-border/90 bg-background px-3 py-3 sm:px-4 sm:py-4 md:py-5">
           <a
             href={BLOG_ARCHIVE_HREF}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-3xl border border-border bg-primary px-5 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+            className="inline-flex items-center gap-1.5 rounded-3xl border border-border bg-primary px-4 py-1.5 text-xs font-medium text-primary-foreground transition-colors hover:bg-primary/90 sm:gap-2 sm:px-5 sm:py-2 sm:text-sm"
           >
             All Posts
-            <ArrowRight className="size-4" aria-hidden />
+            <ArrowRight className="size-3.5 sm:size-4" aria-hidden />
           </a>
         </div>
       </div>

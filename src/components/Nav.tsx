@@ -1,6 +1,16 @@
-import { Moon, Sun } from "lucide-react"
+import { Menu, Moon, Sun, X } from "lucide-react"
+import { useEffect, useId, useState } from "react"
 import { useTheme } from "./theme-provider"
 import { Button } from "./ui/button"
+import { cn } from "@/lib/utils"
+
+const NAV_LINKS = [
+  { href: "#home", label: "Home" },
+  { href: "#experience", label: "Experience" },
+  { href: "#projects", label: "Projects" },
+  { href: "#skills", label: "Skills" },
+  { href: "#blog", label: "Blogs" },
+] as const
 
 function ThemeToggle() {
   const { setTheme, theme } = useTheme()
@@ -9,6 +19,7 @@ function ThemeToggle() {
     <Button
       variant="outline"
       size="icon-sm"
+      className="relative shrink-0"
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
     >
       <Sun className="h-[1.2rem] w-[1.2rem] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" />
@@ -19,33 +30,83 @@ function ThemeToggle() {
 }
 
 export function Nav() {
+  const [mobileOpen, setMobileOpen] = useState(false)
+  const panelId = useId()
+
+  useEffect(() => {
+    if (!mobileOpen) return
+
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMobileOpen(false)
+    }
+
+    const prevOverflow = document.body.style.overflow
+    document.body.style.overflow = "hidden"
+    window.addEventListener("keydown", onKeyDown)
+
+    return () => {
+      document.body.style.overflow = prevOverflow
+      window.removeEventListener("keydown", onKeyDown)
+    }
+  }, [mobileOpen])
+
   return (
     <nav className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/70 backdrop-blur-md backdrop-saturate-150">
-      <div className="relative mx-auto flex max-w-3xl items-center justify-between px-12 py-5">
-        <div className="flex gap-8 text-sm text-muted-foreground">
-          <a href="#home" className="transition-colors hover:text-foreground">
-            Home
-          </a>
-          <a
-            href="#experience"
-            className="transition-colors hover:text-foreground"
-          >
-            Experience
-          </a>
-          <a
-            href="#projects"
-            className="transition-colors hover:text-foreground"
-          >
-            Projects
-          </a>
-          <a href="#skills" className="transition-colors hover:text-foreground">
-            Skills
-          </a>
-          <a href="#blog" className="transition-colors hover:text-foreground">
-            Blogs
-          </a>
+      <div className="relative mx-auto flex max-w-3xl items-center justify-between gap-4 px-4 py-4 sm:px-8 lg:px-12 lg:py-5">
+        <div className="hidden min-w-0 flex-1 items-center gap-6 text-sm text-muted-foreground lg:flex lg:gap-8">
+          {NAV_LINKS.map(({ href, label }) => (
+            <a
+              key={href}
+              href={href}
+              className="shrink-0 transition-colors hover:text-foreground"
+            >
+              {label}
+            </a>
+          ))}
         </div>
-        <ThemeToggle />
+
+        <div className="flex w-full items-center justify-end gap-2 sm:gap-3 lg:w-auto lg:justify-end">
+          <Button
+            type="button"
+            variant="outline"
+            size="icon-sm"
+            className="lg:hidden"
+            aria-expanded={mobileOpen}
+            aria-controls={panelId}
+            onClick={() => setMobileOpen((o) => !o)}
+          >
+            {mobileOpen ? (
+              <X className="size-4" aria-hidden />
+            ) : (
+              <Menu className="size-4" aria-hidden />
+            )}
+            <span className="sr-only">
+              {mobileOpen ? "Close navigation menu" : "Open navigation menu"}
+            </span>
+          </Button>
+          <ThemeToggle />
+        </div>
+      </div>
+
+      <div
+        id={panelId}
+        className={cn(
+          "border-t border-border/40 bg-background/95 backdrop-blur-md lg:hidden",
+          mobileOpen ? "block" : "hidden"
+        )}
+      >
+        <div className="mx-auto flex max-w-3xl flex-col gap-1 px-4 py-3 sm:px-8">
+          {NAV_LINKS.map(({ href, label }) => (
+            <a
+              key={href}
+              href={href}
+              className="rounded-2xl px-3 py-2.5 text-sm text-muted-foreground transition-colors hover:bg-muted/80 hover:text-foreground"
+              onClick={() => setMobileOpen(false)}
+            >
+              {label}
+            </a>
+          ))}
+        </div>
       </div>
     </nav>
   )
