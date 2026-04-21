@@ -32,7 +32,7 @@ function BlogRowLines() {
   const columns = 2
   return (
     <div
-      className={cn(overlayGridClass, "-translate-y-2")}
+      className={cn(overlayGridClass, "hidden md:grid")}
       style={{ gridTemplateColumns: `repeat(${columns}, 1fr)` }}
     >
       <div
@@ -54,6 +54,18 @@ export const ExtraBorder = () => {
     </>
   )
 }
+const MobileBorder = () => {
+  return (
+    <div className="pointer-events-none absolute inset-0 grid grid-cols-1 grid-rows-4 gap-8 py-6 sm:hidden">
+      {Array.from({ length: BLOG_POSTS.length - 1 }).map((_, i) => (
+        <div key={i} className="relative sm:hidden">
+          <div className="absolute inset-x-0 -bottom-4 -translate-y-[5px] border-b border-border"></div>
+          <div className="absolute inset-x-0 -bottom-4 translate-y-[5px] border-b border-border"></div>
+        </div>
+      ))}
+    </div>
+  )
+}
 
 export function BlogSection() {
   const count = BLOG_POSTS.length
@@ -72,13 +84,13 @@ export function BlogSection() {
           <BlogColumnLines />
           <BlogRowLines />
           <ExtraBorder />
-
-          <div className="-z-10 grid grid-cols-1 gap-4 px-1 py-2 sm:grid-cols-2 sm:gap-5 sm:px-2 sm:py-3 md:gap-6 md:px-3">
+          <MobileBorder />
+          <div className="-z-10 grid grid-cols-1 gap-8 px-4 py-6 sm:grid-cols-2 sm:px-2 sm:py-3 md:gap-6 md:px-3">
             {BLOG_POSTS.map((post) => (
               <a
                 key={post.id}
                 href={post.href}
-                className="group flex flex-col bg-background transition-colors hover:bg-muted/50 sm:p-2 md:p-2.5"
+                className="group flex flex-col justify-center bg-background transition-colors hover:bg-muted/50 sm:p-2 md:p-2.5"
               >
                 <div className="relative aspect-16/10 overflow-hidden rounded-2xl bg-muted ring-1 ring-border sm:rounded-3xl">
                   <img
@@ -89,7 +101,7 @@ export function BlogSection() {
                   />
                 </div>
                 <div className="mt-3 flex min-w-0 items-start gap-1.5 sm:mt-4 sm:gap-2">
-                  <h3 className="min-w-0 flex-1 text-sm leading-snug font-semibold text-foreground sm:text-base md:text-[1.0625rem]">
+                  <h3 className="min-w-0 flex-1 truncate text-sm leading-snug font-semibold text-foreground sm:text-base md:text-[1.0625rem]">
                     {post.title}
                   </h3>
                   {post.featured ? (
@@ -101,7 +113,7 @@ export function BlogSection() {
                 </div>
                 <time
                   dateTime={post.date}
-                  className="mt-1.5 text-xs text-muted-foreground sm:mt-2 sm:text-sm md:text-[0.9375rem]"
+                  className="mt-1 text-xs text-muted-foreground sm:mt-2 sm:text-sm md:text-[0.9375rem]"
                 >
                   {formatBlogDate(post.date)}
                 </time>
