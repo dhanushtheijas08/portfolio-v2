@@ -27,7 +27,7 @@ export function ThemeProvider({
   storageKey = "vite-ui-theme",
   ...props
 }: ThemeProviderProps) {
-  const [theme, setTheme] = useState<Theme>(
+  const [theme, setThemeState] = useState<Theme>(
     () => (localStorage.getItem(storageKey) as Theme) || defaultTheme
   )
 
@@ -51,13 +51,18 @@ export function ThemeProvider({
 
   const value = {
     theme,
-    setTheme: (theme: Theme) => {
-      document.startViewTransition(() => {
+    setTheme: (next: Theme) => {
+      const update = () => {
         flushSync(() => {
-          setTheme(theme)
+          setThemeState(next)
         })
-      })
-      localStorage.setItem(storageKey, theme)
+      }
+      if (typeof document.startViewTransition === "function") {
+        document.startViewTransition(update)
+      } else {
+        update()
+      }
+      localStorage.setItem(storageKey, next)
     },
   }
 
