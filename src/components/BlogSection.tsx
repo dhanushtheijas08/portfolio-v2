@@ -32,7 +32,7 @@ function BlogRowLines() {
   const columns = 2
   return (
     <div
-      className={overlayGridClass}
+      className={cn(overlayGridClass, "-translate-y-2")}
       style={{ gridTemplateColumns: `repeat(${columns}, 1fr)` }}
     >
       <div
@@ -78,7 +78,7 @@ export function BlogSection() {
               <a
                 key={post.id}
                 href={post.href}
-                className="group flex flex-col bg-background transition-colors hover:bg-muted/30 sm:p-2 md:p-2.5"
+                className="group flex flex-col bg-background transition-colors hover:bg-muted/50 sm:p-2 md:p-2.5"
               >
                 <div className="relative aspect-16/10 overflow-hidden rounded-2xl bg-muted ring-1 ring-border sm:rounded-3xl">
                   <img
@@ -89,7 +89,7 @@ export function BlogSection() {
                   />
                 </div>
                 <div className="mt-3 flex min-w-0 items-start gap-1.5 sm:mt-4 sm:gap-2">
-                  <h3 className="min-w-0 flex-1 text-sm font-semibold leading-snug text-foreground sm:text-base md:text-[1.0625rem]">
+                  <h3 className="min-w-0 flex-1 text-sm leading-snug font-semibold text-foreground sm:text-base md:text-[1.0625rem]">
                     {post.title}
                   </h3>
                   {post.featured ? (
@@ -110,7 +110,7 @@ export function BlogSection() {
           </div>
         </div>
 
-        <div className="flex justify-center border-t border-border/90 bg-background px-3 py-3 sm:px-4 sm:py-4 md:py-5">
+        <div className="flex justify-center border-t border-border/90 bg-background px-3 py-3 md:py-4">
           <a
             href={BLOG_ARCHIVE_HREF}
             target="_blank"

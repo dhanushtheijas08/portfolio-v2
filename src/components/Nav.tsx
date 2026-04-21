@@ -1,8 +1,8 @@
+import { cn } from "@/lib/utils"
 import { Menu, Moon, Sun, X } from "lucide-react"
 import { useEffect, useId, useState } from "react"
 import { useTheme } from "./theme-provider"
 import { Button } from "./ui/button"
-import { cn } from "@/lib/utils"
 
 const NAV_LINKS = [
   { href: "#home", label: "Home" },
@@ -51,7 +51,7 @@ export function Nav() {
   }, [mobileOpen])
 
   return (
-    <nav className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/70 backdrop-blur-md backdrop-saturate-150">
+    <nav className="sticky top-0 z-50 w-full border-b border-border/60 bg-background/70 backdrop-blur-md backdrop-saturate-150 md:border-border/75">
       <div className="relative mx-auto flex max-w-3xl items-center justify-between gap-4 px-4 py-4 sm:px-8 lg:px-12 lg:py-5">
         <div className="hidden min-w-0 flex-1 items-center gap-6 text-sm text-muted-foreground lg:flex lg:gap-8">
           {NAV_LINKS.map(({ href, label }) => (
