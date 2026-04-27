@@ -1,7 +1,7 @@
 export const PHONE = "+91 8220586721"
 export const EMAIL = "dhanushtheijas08@gmail.com"
 export const RESUME_URL =
-  "https://drive.google.com/file/d/1usCDz2c4wtNKrkPV-akuh2Tm6wjDAZ-2/view?usp=sharing"
+  "https://drive.google.com/file/d/1FeV3nZBYFfzqIbuWE7mep-DUIhybqmiX/view?usp=drive_link"
 
 export const SOCIAL_HREF = {
   github: "https://github.com/dhanushtheijas08",
@@ -129,7 +129,7 @@ export const PROJECTS: ProjectItem[] = [
       "BullMQ",
     ],
     githubUrl: "https://github.com/dhanushtheijas08/code-judge",
-    liveUrl: "https://example.com",
+    liveUrl: "https://github.com/dhanushtheijas08/code-judge",
   },
   {
     id: "resume-builder",
@@ -172,7 +172,7 @@ export const EXPERIENCES: ExperienceItem[] = [
   {
     id: "velam-ai",
     company: "Velam AI",
-    role: "Software Engineering",
+    role: "Software Engineer",
     start: "2024-09-03",
     end: null,
     skills: [
