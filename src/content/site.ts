@@ -1,7 +1,7 @@
 export const PHONE = "+91 8220586721"
 export const EMAIL = "dhanushtheijas08@gmail.com"
 export const RESUME_URL =
-  "https://drive.google.com/file/d/1FeV3nZBYFfzqIbuWE7mep-DUIhybqmiX/view?usp=drive_link"
+  "https://drive.google.com/file/d/1ku9V7t5m63V4S0y1L3ldKXqU-c0yxDYQ/view?usp=sharing"
 
 export const SOCIAL_HREF = {
   github: "https://github.com/dhanushtheijas08",
@@ -15,7 +15,6 @@ export type SkillItem = {
   label: string
   iconSlug: string
   iconColor?: string
-  /** Light vs dark UI (e.g. black on light theme, white on dark). */
   iconColorLight?: string
   iconColorDark?: string
 }
